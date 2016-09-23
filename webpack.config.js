@@ -2,7 +2,7 @@
 module.exports = {
   entry: './src/app.js',
   output: {
-    filename: './site/app.js'       
+    filename: './docs/app.js'       
   },
   module: {
     loaders: [

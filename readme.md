@@ -16,7 +16,7 @@ TODO
 
 
 ```jsx
-import ImageMagnifer from 'react-cursor-zoom';
+import CursorZoom from 'react-cursor-zoom';
 
 var App = React.createClass({
     render: function() {
@@ -59,7 +59,7 @@ The high-res image to be used on hover
 
 ### cursorOffset
 
-> Optional : default ``
+> Optional : default `{ x: 0, y: 0 }`
 
  `{ x: 0, y: 0 }` or `{ x, y }`
 
