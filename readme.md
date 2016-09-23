@@ -6,7 +6,7 @@ Based on [lelandrichardson/react-image-magnifier](https://github.com/lelandricha
 
 ## Demo
 
-TODO
+[Here](http://www.jaredlotti.com/react-cursor-zoom/)
 
 ## Installation
 
