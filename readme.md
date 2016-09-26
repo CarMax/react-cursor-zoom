@@ -1,4 +1,5 @@
-# react-cursor-zoom
+# react-cursor-zoom 
+[![Build Status](https://travis-ci.org/Jarlotee/react-cursor-zoom.svg?branch=master)](https://travis-ci.org/Jarlotee/react-cursor-zoom)
 
 A react component that uses a high-res source image to produce a zoom window on mouse hover
 
