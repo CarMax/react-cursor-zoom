@@ -3,4 +3,5 @@ node_js:
   - "node"
   - "5"
   - "4"
+before_script: npm test
 script: npm build
