@@ -13,3 +13,4 @@ deploy:
   on:
     tags: true
     repo: Jarlotee/react-cursor-zoom
+    node: '4'
