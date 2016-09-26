@@ -1,7 +1,15 @@
 language: node_js
 node_js:
-  - "node"
-  - "5"
-  - "4"
+- node
+- '5'
+- '4'
 before_script: npm test
 script: npm build
+deploy:
+  provider: npm
+  email: jaredlotti@hotmail.com
+  api_key:
+    secure: GH97/ZZhIbuYWgrHLpFOwebrhnR6xuwnS4bIFpGNCfqk3xx0VUDTRlXoV/GW/Vgv1XqpuZ1UpIbovbwpTgfpvkgSsu+GMAs140MQh2VQV/eKItjst82YaciBcLoJ5Y1yOytOCeKnnZmE5dVUqRKWEYw+kD1cVBu8NMVcSBAB1qayuFC0iqd/CdYo3L6HCKhWGZY5i33E8L2kYhlag1C/vApebO456HPhsqkmXhXPmCk7ZF8DOSbLCtZ5AWWmJ0FbIb55oU2mPf52cT0g1g/lw8YcpiWpOuYEMbH86HaayFmiryNPgOuk/G+anEmBz+rX2cc2M8Q1A3f0fWd0xrHFya5AmeNiHFHgEZaZhmyWbiWvzVjeJYI3+5UBmeH//YtjIsFnqxRbeuk+6YmT4Ap9rXvSPaW+19XJTOzt0O59n0X6fKTOu3oUgfL8hs8nILRz9WjRDrJUgFqZgZwC6fh/sgwBXpgYTSfPaxIrb7czdwNk4WLsHszQm+PhflVBnzsiyjSNhaJFs5SXCUWhgN/Eao4rYAdpoE+f+HkOgOAOBY2dThETBcnDl7EEnoOc/KlXM7dTUJIVA3pDQ7UiLj+/Fbcc2QFyvbHvMmPNIy0YOgZTDxIXmpizFLbB/UCMvEbd4mCoYgj5X+IX7B/SXLpvoCzKLULlTt4Enl2OZ5Ew9K0=
+  on:
+    tags: true
+    repo: Jarlotee/react-cursor-zoom
