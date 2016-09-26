@@ -19,7 +19,9 @@ class Magnifier extends React.Component {
         var bgX = -(props.offsetX * magX - halfSizeX);
         var bgY = -(props.offsetY * magY - halfSizeY);
         var isVisible = props.offsetY < props.smallImage.height && props.offsetX < props.smallImage.width && props.offsetY > 0 && props.offsetX > 0;
+
         return (<div
+                    className={'cursor-zoom-magnifier-container'}
                     style={{
                         position: 'absolute',
                         display: isVisible ? 'block' : 'none',
@@ -34,6 +36,7 @@ class Magnifier extends React.Component {
                     }}
                 >
                     <div
+                        className={'cursor-zoom-magnifier'}
                         style={{
                             width: props.size + (props.size * .4),
                             height: props.size,

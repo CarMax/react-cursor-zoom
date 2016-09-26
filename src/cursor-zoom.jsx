@@ -56,6 +56,7 @@ class CursorZoom extends React.Component {
     _onMouseMove(e) {
         var offset = getOffset(this.refs.image);
 
+        
         var scrollX = (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
         var scrollY = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
@@ -72,7 +73,7 @@ class CursorZoom extends React.Component {
         }
     }
     render() {
-        return <img ref="image" src={this.props.image.src} />;
+        return <img ref="image" width={this.props.image.width} height={this.props.image.height} src={this.props.image.src} />;
     }
 }
 
