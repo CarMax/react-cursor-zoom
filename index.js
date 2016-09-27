@@ -1,1 +1,1 @@
-module.exports = require('./src/cursor-zoom');
+module.exports = require('./src/cursor-zoom.jsx');

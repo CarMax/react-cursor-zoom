@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CursorZoom from './cursor-zoom';
+import CursorZoom from './cursor-zoom.jsx';
 
 var Demo = React.createClass({
     render: function() {
