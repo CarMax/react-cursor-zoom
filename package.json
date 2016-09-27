@@ -25,6 +25,9 @@
   "peerDependencies": {
     "react": "15.x"
   },
+  "browserify": {
+    "transform": ["babelify"]
+  },
   "jest": {
     "testRegex": "(/test/.*|\\.(test|spec))\\.(js|json|jsx)$",
     "moduleFileExtensions": [
