@@ -1,0 +1,17 @@
+# ignore docs folder
+docs/
+
+# ignore development config files
+.editorconfig
+.eslintrc
+.gitattributes
+.gitignore
+.travis.yml
+.npmignore
+
+# ignore test files
+test/
+
+# ignore demo js files
+src/app.js
+src/demo.jsx
