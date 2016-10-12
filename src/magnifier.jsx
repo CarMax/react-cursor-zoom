@@ -32,9 +32,23 @@ class Magnifier extends React.Component {
                         marginLeft: -halfSizeX + props.cursorOffset.x,
                         marginTop: -halfSizeY + props.cursorOffset.y,
                         backgroundColor: 'white',
-                        boxShadow: '1px 1px 6px rgba(0,0,0,0.3)'
+                        boxShadow: '1px 1px 6px rgba(0,0,0,0.3)',
+                        zIndex: 9999
                     }}
                 >
+                    <div
+                        className={'cursor-zoom-triangle'}
+                        style={{
+                            width: 0,
+                            height: 0,
+                            borderStyle: 'solid',
+                            borderWidth: '13.5px 23.4px 13.5px 0',
+                            borderColor: 'transparent white transparent transparent',
+                            position: 'absolute',
+                            left: '-22px',
+                            bottom: '27px'
+                        }}
+                    />
                     <div
                         className={'cursor-zoom-magnifier'}
                         style={{
@@ -43,7 +57,7 @@ class Magnifier extends React.Component {
                             backgroundImage: 'url(' + props.zoomImage.src + ')',
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: bgX + 'px ' + bgY + 'px',
-                            border: '4px solid #77c2e6'
+                            border: '5px solid white'
                         }}
                         onClick={this._handleClick}
                     />
