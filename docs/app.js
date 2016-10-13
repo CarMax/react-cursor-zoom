@@ -74,6 +74,7 @@
 	            'div',
 	            null,
 	            _react2.default.createElement(_cursorZoom2.default, {
+	                size: 100,
 	                image: {
 	                    src: "img/cat-small.jpg",
 	                    width: 400,
@@ -83,6 +84,22 @@
 	                    src: "img/cat-large.jpg",
 	                    width: 1024,
 	                    height: 768
+	                },
+	                borderColor: 'white',
+	                borderSize: '5px',
+	                cursorOffset: {
+	                    x: 100,
+	                    y: -20
+	                },
+	                pointerStyle: {
+	                    width: 0,
+	                    height: 0,
+	                    borderStyle: 'solid',
+	                    borderWidth: '13.5px 23.4px 13.5px 0',
+	                    borderColor: 'transparent white transparent transparent',
+	                    position: 'absolute',
+	                    left: '-18',
+	                    bottom: '10'
 	                }
 	            }),
 	            _react2.default.createElement(_cursorZoom2.default, {
@@ -16083,7 +16100,8 @@
 	  if (x === y) {
 	    // Steps 1-5, 7-10
 	    // Steps 6.b-6.e: +0 != -0
-	    return x !== 0 || 1 / x === 1 / y;
+	    // Added the nonzero y check to make Flow happy, but it is redundant
+	    return x !== 0 || y !== 0 || 1 / x === 1 / y;
 	  } else {
 	    // Step 6.a: NaN == NaN
 	    return x !== x && y !== y;
@@ -21583,6 +21601,9 @@
 	                smallImage: this.props.image,
 	                zoomImage: this.props.zoomImage,
 	                cursorOffset: this.props.cursorOffset,
+	                borderSize: this.props.borderSize,
+	                borderColor: this.props.borderColor,
+	                pointerStyle: this.props.pointerStyle,
 	                onClick: this._handleClick
 	            }, this.state)), this.portalElement);
 	        }
@@ -21624,6 +21645,10 @@
 	    // the size of the magnifier window
 	    size: _react2.default.PropTypes.number,
 	    // the offset of the zoom bubble from the cursor
+	    borderSize: _react2.default.PropTypes.string,
+	    borderColor: _react2.default.PropTypes.string,
+	    // show a triangle pointer next to cursor (useful with offset)
+	    pointerStyle: _react2.default.PropTypes.string,
 	    cursorOffset: _react2.default.PropTypes.shape({
 	        x: _react2.default.PropTypes.number.isRequired,
 	        y: _react2.default.PropTypes.number.isRequired
@@ -21707,6 +21732,20 @@
 	            var bgY = -(props.offsetY * magY - halfSizeY);
 	            var isVisible = props.offsetY < props.smallImage.height && props.offsetX < props.smallImage.width && props.offsetY > 0 && props.offsetX > 0;
 
+	            // if(props.pointer) {
+	            //     var borderWidth;
+	            //     if((props.cursorOffset.x > props.cursorOffset.y) && props.cursorOffset.y < 0) {
+	            //         borderWidth = '13.5px 23.4px 13.5px 0'; // left
+	            //     } else if(props.cursorOffset.x < props.cursorOffset.y && props.cursorOffset.x < 0) {
+	            //         borderWidth = '13.5px 0 13.5px 23.4px'; // right
+	            //     } else if() {
+
+	            //     } else {
+
+	            //     }
+
+	            // }
+
 	            return _react2.default.createElement(
 	                'div',
 	                {
@@ -21721,9 +21760,14 @@
 	                        marginLeft: -halfSizeX + props.cursorOffset.x,
 	                        marginTop: -halfSizeY + props.cursorOffset.y,
 	                        backgroundColor: 'white',
-	                        boxShadow: '1px 1px 6px rgba(0,0,0,0.3)'
+	                        boxShadow: '1px 1px 6px rgba(0,0,0,0.3)',
+	                        zIndex: 9999
 	                    }
 	                },
+	                props.pointerStyle && _react2.default.createElement('div', {
+	                    className: 'cursor-zoom-pointer',
+	                    style: props.pointerStyle
+	                }),
 	                _react2.default.createElement('div', {
 	                    className: 'cursor-zoom-magnifier',
 	                    style: {
@@ -21732,7 +21776,7 @@
 	                        backgroundImage: 'url(' + props.zoomImage.src + ')',
 	                        backgroundRepeat: 'no-repeat',
 	                        backgroundPosition: bgX + 'px ' + bgY + 'px',
-	                        border: '4px solid #77c2e6'
+	                        border: props.borderSize + ' solid ' + props.borderColor
 	                    },
 	                    onClick: this._handleClick
 	                })
@@ -21761,6 +21805,10 @@
 	        x: _react2.default.PropTypes.number.isRequired,
 	        y: _react2.default.PropTypes.number.isRequired
 	    }).isRequired,
+	    borderSize: _react2.default.PropTypes.string,
+	    borderColor: _react2.default.PropTypes.string,
+	    // show a triangle pointer next to cursor (useful with offset)
+	    pointerStyle: _react2.default.PropTypes.bool,
 	    // the size of the non-zoomed-in image
 	    smallImage: _react2.default.PropTypes.shape({
 	        src: _react2.default.PropTypes.string.isRequired,

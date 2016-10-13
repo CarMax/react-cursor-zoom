@@ -20,6 +20,20 @@ class Magnifier extends React.Component {
         var bgY = -(props.offsetY * magY - halfSizeY);
         var isVisible = props.offsetY < props.smallImage.height && props.offsetX < props.smallImage.width && props.offsetY > 0 && props.offsetX > 0;
 
+        // if(props.pointer) {
+        //     var borderWidth;
+        //     if((props.cursorOffset.x > props.cursorOffset.y) && props.cursorOffset.y < 0) {
+        //         borderWidth = '13.5px 23.4px 13.5px 0'; // left
+        //     } else if(props.cursorOffset.x < props.cursorOffset.y && props.cursorOffset.x < 0) {
+        //         borderWidth = '13.5px 0 13.5px 23.4px'; // right
+        //     } else if() {
+
+        //     } else {
+
+        //     }
+
+        // }
+
         return (<div
                     className={'cursor-zoom-magnifier-container'}
                     style={{
@@ -36,19 +50,10 @@ class Magnifier extends React.Component {
                         zIndex: 9999
                     }}
                 >
-                    <div
-                        className={'cursor-zoom-triangle'}
-                        style={{
-                            width: 0,
-                            height: 0,
-                            borderStyle: 'solid',
-                            borderWidth: '13.5px 23.4px 13.5px 0',
-                            borderColor: 'transparent white transparent transparent',
-                            position: 'absolute',
-                            left: '-22px',
-                            bottom: '27px'
-                        }}
-                    />
+                    { props.pointerStyle && <div
+                        className={'cursor-zoom-pointer'}
+                        style={props.pointerStyle}
+                    /> }
                     <div
                         className={'cursor-zoom-magnifier'}
                         style={{
@@ -57,7 +62,7 @@ class Magnifier extends React.Component {
                             backgroundImage: 'url(' + props.zoomImage.src + ')',
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: bgX + 'px ' + bgY + 'px',
-                            border: '5px solid white'
+                            border: props.borderSize + ' solid ' + props.borderColor
                         }}
                         onClick={this._handleClick}
                     />
@@ -84,6 +89,10 @@ Magnifier.propTypes = {
         x: React.PropTypes.number.isRequired,
         y: React.PropTypes.number.isRequired
     }).isRequired,
+    borderSize: React.PropTypes.string,
+    borderColor: React.PropTypes.string,
+    // show a triangle pointer next to cursor (useful with offset)
+    pointerStyle: React.PropTypes.bool,
     // the size of the non-zoomed-in image
     smallImage: React.PropTypes.shape({
         src: React.PropTypes.string.isRequired,

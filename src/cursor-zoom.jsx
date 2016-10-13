@@ -50,13 +50,16 @@ class CursorZoom extends React.Component {
             smallImage: this.props.image,
             zoomImage: this.props.zoomImage,
             cursorOffset: this.props.cursorOffset,
+            borderSize: this.props.borderSize,
+            borderColor: this.props.borderColor,
+            pointerStyle: this.props.pointerStyle,
             onClick: this._handleClick
         }, this.state)), this.portalElement);
     }
     _onMouseMove(e) {
         var offset = getOffset(this.refs.image);
 
-        
+
         var scrollX = (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
         var scrollY = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
 
@@ -83,6 +86,10 @@ CursorZoom.propTypes = {
     // the size of the magnifier window
     size: React.PropTypes.number,
     // the offset of the zoom bubble from the cursor
+    borderSize: React.PropTypes.string,
+    borderColor: React.PropTypes.string,
+    // show a triangle pointer next to cursor (useful with offset)
+    pointerStyle: React.PropTypes.string,
     cursorOffset: React.PropTypes.shape({
         x: React.PropTypes.number.isRequired,
         y: React.PropTypes.number.isRequired
