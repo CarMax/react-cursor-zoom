@@ -21732,20 +21732,6 @@
 	            var bgY = -(props.offsetY * magY - halfSizeY);
 	            var isVisible = props.offsetY < props.smallImage.height && props.offsetX < props.smallImage.width && props.offsetY > 0 && props.offsetX > 0;
 
-	            // if(props.pointer) {
-	            //     var borderWidth;
-	            //     if((props.cursorOffset.x > props.cursorOffset.y) && props.cursorOffset.y < 0) {
-	            //         borderWidth = '13.5px 23.4px 13.5px 0'; // left
-	            //     } else if(props.cursorOffset.x < props.cursorOffset.y && props.cursorOffset.x < 0) {
-	            //         borderWidth = '13.5px 0 13.5px 23.4px'; // right
-	            //     } else if() {
-
-	            //     } else {
-
-	            //     }
-
-	            // }
-
 	            return _react2.default.createElement(
 	                'div',
 	                {
