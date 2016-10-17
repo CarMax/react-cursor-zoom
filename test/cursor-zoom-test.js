@@ -104,6 +104,55 @@ describe('Cursor Zoom Component - Cursor Offset Feature', () => {
     });
 });
 
+describe('Cursor Zoom Component - Pointer Feature', () => {
+    let componentNode = null;
+
+    beforeEach(() => {
+        const component = TestUtils.renderIntoDocument(
+            <CursorZoom
+                image={{
+                    src: "img/cat-small.jpg",
+                    width: 800,
+                    height: 600
+                }}
+                zoomImage={{
+                    src: "img/cat-large.jpg",
+                    width: 1024,
+                    height: 768
+                }}
+                cursorOffset={{ x: 80, y: -80 }}
+                pointerStyle={{
+                    width: 0,
+                    height: 0,
+                    borderStyle: 'solid',
+                    borderWidth: '13.5px 23.4px 13.5px 0',
+                    borderColor: 'transparent white transparent transparent',
+                    position: 'absolute',
+                    left: '-18',
+                    bottom: '10'
+                }}
+            />
+        );
+
+        componentNode = ReactDOM.findDOMNode(component);
+    });
+
+    afterEach(() => {
+        ReactDOM.unmountComponentAtNode(componentNode.parentNode);
+        componentNode = null;
+    });
+
+    it('renders the pointer with correct style', () => {
+        simulateMouseMoveOnDocument({ clientX: 400, clientY: 300 });
+
+        const pointer = document.getElementsByClassName('cursor-zoom-pointer');
+        expect(pointer.length).toEqual(1);
+        expect(pointer[0].style.position).toEqual('absolute');
+        expect(pointer[0].style.left).toEqual('-18px');
+        expect(pointer[0].style.bottom).toEqual('10px');
+    });
+});
+
 describe('Cursor Zoom Component - Preview Size Feature', () => {
     let componentNode = null;
 

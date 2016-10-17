@@ -32,9 +32,14 @@ class Magnifier extends React.Component {
                         marginLeft: -halfSizeX + props.cursorOffset.x,
                         marginTop: -halfSizeY + props.cursorOffset.y,
                         backgroundColor: 'white',
-                        boxShadow: '1px 1px 6px rgba(0,0,0,0.3)'
+                        boxShadow: '1px 1px 6px rgba(0,0,0,0.3)',
+                        zIndex: 9999
                     }}
                 >
+                    { props.pointerStyle && <div
+                        className={'cursor-zoom-pointer'}
+                        style={props.pointerStyle}
+                    /> }
                     <div
                         className={'cursor-zoom-magnifier'}
                         style={{
@@ -43,7 +48,7 @@ class Magnifier extends React.Component {
                             backgroundImage: 'url(' + props.zoomImage.src + ')',
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: bgX + 'px ' + bgY + 'px',
-                            border: '4px solid #77c2e6'
+                            border: props.borderSize + ' solid ' + props.borderColor
                         }}
                         onClick={this._handleClick}
                     />
@@ -70,6 +75,10 @@ Magnifier.propTypes = {
         x: React.PropTypes.number.isRequired,
         y: React.PropTypes.number.isRequired
     }).isRequired,
+    borderSize: React.PropTypes.string,
+    borderColor: React.PropTypes.string,
+    // show a triangle pointer next to cursor (useful with offset)
+    pointerStyle: React.PropTypes.object,
     // the size of the non-zoomed-in image
     smallImage: React.PropTypes.shape({
         src: React.PropTypes.string.isRequired,

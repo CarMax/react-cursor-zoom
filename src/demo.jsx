@@ -7,6 +7,7 @@ var Demo = React.createClass({
         return (
             <div>
                 <CursorZoom
+                    size={100}
                     image={{
                         src: "img/cat-small.jpg",
                         width: 400,
@@ -16,6 +17,22 @@ var Demo = React.createClass({
                         src: "img/cat-large.jpg",
                         width: 1024,
                         height: 768
+                    }}
+                    borderColor='white'
+                    borderSize='5px'
+                    cursorOffset={{
+                        x: 100,
+                        y: -20
+                    }}
+                    pointerStyle={{
+                        width: 0,
+                        height: 0,
+                        borderStyle: 'solid',
+                        borderWidth: '13.5px 23.4px 13.5px 0',
+                        borderColor: 'transparent white transparent transparent',
+                        position: 'absolute',
+                        left: '-18',
+                        bottom: '10'
                     }}
                 />
                 <CursorZoom
