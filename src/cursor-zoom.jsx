@@ -89,7 +89,7 @@ CursorZoom.propTypes = {
     borderSize: React.PropTypes.string,
     borderColor: React.PropTypes.string,
     // show a triangle pointer next to cursor (useful with offset)
-    pointerStyle: React.PropTypes.string,
+    pointerStyle: React.PropTypes.object,
     cursorOffset: React.PropTypes.shape({
         x: React.PropTypes.number.isRequired,
         y: React.PropTypes.number.isRequired

@@ -21648,7 +21648,7 @@
 	    borderSize: _react2.default.PropTypes.string,
 	    borderColor: _react2.default.PropTypes.string,
 	    // show a triangle pointer next to cursor (useful with offset)
-	    pointerStyle: _react2.default.PropTypes.string,
+	    pointerStyle: _react2.default.PropTypes.object,
 	    cursorOffset: _react2.default.PropTypes.shape({
 	        x: _react2.default.PropTypes.number.isRequired,
 	        y: _react2.default.PropTypes.number.isRequired
@@ -21794,7 +21794,7 @@
 	    borderSize: _react2.default.PropTypes.string,
 	    borderColor: _react2.default.PropTypes.string,
 	    // show a triangle pointer next to cursor (useful with offset)
-	    pointerStyle: _react2.default.PropTypes.bool,
+	    pointerStyle: _react2.default.PropTypes.object,
 	    // the size of the non-zoomed-in image
 	    smallImage: _react2.default.PropTypes.shape({
 	        src: _react2.default.PropTypes.string.isRequired,

@@ -78,7 +78,7 @@ Magnifier.propTypes = {
     borderSize: React.PropTypes.string,
     borderColor: React.PropTypes.string,
     // show a triangle pointer next to cursor (useful with offset)
-    pointerStyle: React.PropTypes.bool,
+    pointerStyle: React.PropTypes.object,
     // the size of the non-zoomed-in image
     smallImage: React.PropTypes.shape({
         src: React.PropTypes.string.isRequired,
