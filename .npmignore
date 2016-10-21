@@ -8,10 +8,10 @@ docs/
 .gitignore
 .travis.yml
 .npmignore
+webpack.config.js
 
 # ignore test files
 test/
 
-# ignore demo js files
-src/app.js
-src/demo.jsx
+# ignore source files
+src/

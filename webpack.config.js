@@ -2,7 +2,7 @@
 module.exports = {
   entry: './src/app.js',
   output: {
-    filename: './docs/app.js'       
+    filename: './docs/app.js'
   },
   module: {
     loaders: [
@@ -16,6 +16,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx'] 
+    extensions: ['', '.js', '.json', '.jsx']
   }
 };
