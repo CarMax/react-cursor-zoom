@@ -52,6 +52,7 @@ class CursorZoom extends React.Component {
             cursorOffset: this.props.cursorOffset,
             borderSize: this.props.borderSize,
             borderColor: this.props.borderColor,
+            containerBackgroundColor: this.props.containerBackgroundColor,
             pointerStyle: this.props.pointerStyle,
             onClick: this._handleClick
         }, this.state)), this.portalElement);
@@ -88,6 +89,7 @@ CursorZoom.propTypes = {
     // the offset of the zoom bubble from the cursor
     borderSize: React.PropTypes.string,
     borderColor: React.PropTypes.string,
+    containerBackgroundColor: React.PropTypes.string,
     // show a triangle pointer next to cursor (useful with offset)
     pointerStyle: React.PropTypes.object,
     cursorOffset: React.PropTypes.shape({

@@ -31,7 +31,7 @@ class Magnifier extends React.Component {
                         height: props.size,
                         marginLeft: -halfSizeX + props.cursorOffset.x,
                         marginTop: -halfSizeY + props.cursorOffset.y,
-                        backgroundColor: 'white',
+                        backgroundColor: props.containerBackgroundColor || 'white',
                         boxShadow: '1px 1px 6px rgba(0,0,0,0.3)',
                         zIndex: 9999
                     }}
@@ -77,6 +77,7 @@ Magnifier.propTypes = {
     }).isRequired,
     borderSize: React.PropTypes.string,
     borderColor: React.PropTypes.string,
+    containerBackgroundColor: React.PropTypes.string,
     // show a triangle pointer next to cursor (useful with offset)
     pointerStyle: React.PropTypes.object,
     // the size of the non-zoomed-in image
