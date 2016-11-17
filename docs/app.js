@@ -16100,7 +16100,8 @@
 	  if (x === y) {
 	    // Steps 1-5, 7-10
 	    // Steps 6.b-6.e: +0 != -0
-	    return x !== 0 || 1 / x === 1 / y;
+	    // Added the nonzero y check to make Flow happy, but it is redundant
+	    return x !== 0 || y !== 0 || 1 / x === 1 / y;
 	  } else {
 	    // Step 6.a: NaN == NaN
 	    return x !== x && y !== y;
@@ -21602,6 +21603,7 @@
 	                cursorOffset: this.props.cursorOffset,
 	                borderSize: this.props.borderSize,
 	                borderColor: this.props.borderColor,
+	                containerBackgroundColor: this.props.containerBackgroundColor,
 	                pointerStyle: this.props.pointerStyle,
 	                onClick: this._handleClick
 	            }, this.state)), this.portalElement);
@@ -21646,6 +21648,7 @@
 	    // the offset of the zoom bubble from the cursor
 	    borderSize: _react2.default.PropTypes.string,
 	    borderColor: _react2.default.PropTypes.string,
+	    containerBackgroundColor: _react2.default.PropTypes.string,
 	    // show a triangle pointer next to cursor (useful with offset)
 	    pointerStyle: _react2.default.PropTypes.object,
 	    cursorOffset: _react2.default.PropTypes.shape({
@@ -21744,7 +21747,7 @@
 	                        height: props.size,
 	                        marginLeft: -halfSizeX + props.cursorOffset.x,
 	                        marginTop: -halfSizeY + props.cursorOffset.y,
-	                        backgroundColor: 'white',
+	                        backgroundColor: props.containerBackgroundColor || 'white',
 	                        boxShadow: '1px 1px 6px rgba(0,0,0,0.3)',
 	                        zIndex: 9999
 	                    }
@@ -21792,6 +21795,7 @@
 	    }).isRequired,
 	    borderSize: _react2.default.PropTypes.string,
 	    borderColor: _react2.default.PropTypes.string,
+	    containerBackgroundColor: _react2.default.PropTypes.string,
 	    // show a triangle pointer next to cursor (useful with offset)
 	    pointerStyle: _react2.default.PropTypes.object,
 	    // the size of the non-zoomed-in image
