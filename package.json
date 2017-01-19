@@ -1,6 +1,6 @@
 {
   "name": "react-cursor-zoom",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A react component that uses a high-res source image to produce a zoom window on mouse hover",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jarlotee/react-cursor-zoom.git"
+    "url": "https://github.com/CarMax/react-cursor-zoom.git"
   },
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
     "magnifier",
     "zoom"
   ],
-  "author": "Jared Lotti",
+  "author": "CarMax",
   "license": "MIT",
   "peerDependencies": {
     "react": "15.x"
