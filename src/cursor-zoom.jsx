@@ -76,7 +76,7 @@ class CursorZoom extends React.Component {
         }
     }
     render() {
-        return <img ref="image" width={this.props.image.width} height={this.props.image.height} src={this.props.image.src} />;
+        return <img ref="image" width={this.props.image.width} height={this.props.image.height} src={this.props.image.src} style={this.props.image.style} />;
     }
 }
 
