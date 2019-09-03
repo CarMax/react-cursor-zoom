@@ -7,7 +7,7 @@
     "test": "jest",
     "build": "webpack",
     "dev": "webpack --watch",
-    "build-lib": "babel src --out-dir lib --ignore app.js,demo.jsx"
+    "build-lib": "babel src --out-dir lib --ignore src/app.js,src/demo.jsx"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
