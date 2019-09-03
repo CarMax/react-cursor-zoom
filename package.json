@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack --progress --colors && npm run build-lib",
-    "build-lib": "babel src --out-dir lib --ignore app.js,demo.jsx",
-    "watch": "webpack --watch"
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "build-lib": "babel src --out-dir lib --ignore app.js,demo.jsx"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
   "author": "CarMax",
   "license": "MIT",
   "peerDependencies": {
-    "react": "15.x"
+    "react": "15.x || 16.x",
+    "react-dom": "15.x || 16.x"
   },
   "jest": {
     "testRegex": "(/test/.*|\\.(test|spec))\\.(js|json|jsx)$",
@@ -43,13 +44,14 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.9.0",
-    "del": "^5.1.0",
+    "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.9.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "webpack": "^1.13.2"
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
   }
 }

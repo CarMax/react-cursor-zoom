@@ -1,21 +1,31 @@
-// webpack.config.js
+const path = require("path");
+
 module.exports = {
   entry: './src/app.js',
+  mode: 'production',
   output: {
-    filename: './docs/app.js'
+    filename: 'app.js',
+    path: path.resolve(__dirname, 'docs')
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader'
         }
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx']
+    extensions: ['.js', '.jsx']
+  },
+  stats: {
+    warnings: false,
+    modules: false,
+    hash: false,
+    version: false,
+    children: false
   }
 };
