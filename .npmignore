@@ -1,17 +1,16 @@
 # ignore docs folder
 docs/
 
+# ignore test files
+test/
+jest.setup.js
+
+# ignore source files
+src/
+
 # ignore development config files
 .editorconfig
-.eslintrc
-.gitattributes
 .gitignore
 .travis.yml
 .npmignore
 webpack.config.js
-
-# ignore test files
-test/
-
-# ignore source files
-src/
